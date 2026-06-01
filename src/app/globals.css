@@ -1,0 +1,347 @@
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────────────────────────────────────
+   OpenThena design tokens — "cyber-aurora" on deep navy.
+   Brand: navy #0B2846, light #F5F6F6.
+   ────────────────────────────────────────────────────────────────────────── */
+@theme {
+  --color-navy-950: #04101f;
+  --color-navy-900: #061a30;
+  --color-navy-800: #0b2846;
+  --color-navy-700: #123558;
+  --color-ink: #f5f6f6;
+
+  --color-aurora-cyan: #38e1d6;
+  --color-aurora-blue: #3b82f6;
+  --color-aurora-violet: #8b5cf6;
+  --color-aurora-teal: #22d3ee;
+
+  --color-brand: #38e1d6;
+  --color-brand-strong: #18b9ec;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+
+  --animate-aurora: aurora 18s ease-in-out infinite;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-shimmer: shimmer 2.2s linear infinite;
+  --animate-pulse-glow: pulseGlow 2.4s ease-in-out infinite;
+}
+
+@keyframes aurora {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(4%, -3%, 0) scale(1.08);
+  }
+  66% {
+    transform: translate3d(-3%, 4%, 0) scale(0.96);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-navy-950);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-brand) 35%, transparent);
+    color: #ffffff;
+  }
+
+  /* Custom scrollbar for the dark theme */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--color-aurora-blue) 40%, transparent);
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: color-mix(in srgb, var(--color-brand) 60%, transparent);
+    background-clip: content-box;
+  }
+}
+
+@layer utilities {
+  /* Glassmorphism surface */
+  .glass {
+    background: color-mix(in srgb, var(--color-navy-800) 45%, transparent);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid color-mix(in srgb, var(--color-ink) 10%, transparent);
+  }
+
+  .glass-strong {
+    background: color-mix(in srgb, var(--color-navy-900) 70%, transparent);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid color-mix(in srgb, var(--color-ink) 12%, transparent);
+  }
+
+  /* Gradient text */
+  .text-gradient {
+    background: linear-gradient(
+      120deg,
+      var(--color-ink) 0%,
+      var(--color-aurora-cyan) 50%,
+      var(--color-aurora-blue) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-brand {
+    background: linear-gradient(
+      120deg,
+      var(--color-aurora-cyan),
+      var(--color-aurora-violet)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Animated conic border ring */
+  .glow-ring {
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--color-brand) 30%, transparent),
+      0 0 40px -8px color-mix(in srgb, var(--color-brand) 50%, transparent);
+  }
+
+  /* Subtle film grain overlay */
+  .grain::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .mask-fade-b {
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  }
+
+  .animate-aurora {
+    animation: var(--animate-aurora);
+  }
+  .animate-float {
+    animation: var(--animate-float);
+  }
+  .animate-pulse-glow {
+    animation: var(--animate-pulse-glow);
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(
+        to right,
+        color-mix(in srgb, var(--color-ink) 5%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--color-ink) 5%, transparent) 1px,
+        transparent 1px
+      );
+    background-size: 56px 56px;
+  }
+}
+
+/* ── Chat markdown ("prose-openthena") ──────────────────────────────────── */
+@layer components {
+  .prose-openthena {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: color-mix(in srgb, var(--color-ink) 88%, transparent);
+    word-break: break-word;
+  }
+  .prose-openthena > :first-child {
+    margin-top: 0;
+  }
+  .prose-openthena > :last-child {
+    margin-bottom: 0;
+  }
+  .prose-openthena p {
+    margin: 0.75rem 0;
+  }
+  .prose-openthena h1,
+  .prose-openthena h2,
+  .prose-openthena h3,
+  .prose-openthena h4 {
+    margin: 1.4rem 0 0.6rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    line-height: 1.3;
+  }
+  .prose-openthena h1 {
+    font-size: 1.4rem;
+  }
+  .prose-openthena h2 {
+    font-size: 1.2rem;
+  }
+  .prose-openthena h3 {
+    font-size: 1.05rem;
+  }
+  .prose-openthena ul,
+  .prose-openthena ol {
+    margin: 0.75rem 0;
+    padding-left: 1.4rem;
+  }
+  .prose-openthena ul {
+    list-style: disc;
+  }
+  .prose-openthena ol {
+    list-style: decimal;
+  }
+  .prose-openthena li {
+    margin: 0.3rem 0;
+  }
+  .prose-openthena blockquote {
+    margin: 1rem 0;
+    border-left: 3px solid color-mix(in srgb, var(--color-brand) 60%, transparent);
+    padding-left: 1rem;
+    color: color-mix(in srgb, var(--color-ink) 65%, transparent);
+  }
+  .prose-openthena hr {
+    margin: 1.5rem 0;
+    border-color: color-mix(in srgb, var(--color-ink) 12%, transparent);
+  }
+  .prose-openthena table {
+    width: 100%;
+    margin: 1rem 0;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+  .prose-openthena th,
+  .prose-openthena td {
+    border: 1px solid color-mix(in srgb, var(--color-ink) 12%, transparent);
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+  }
+  .prose-openthena th {
+    background: color-mix(in srgb, var(--color-navy-800) 50%, transparent);
+  }
+  .prose-openthena strong {
+    color: var(--color-ink);
+    font-weight: 600;
+  }
+
+  /* highlight.js — compact dark theme tuned to the aurora palette */
+  .hljs {
+    color: #e6edf3;
+    background: transparent;
+  }
+  .hljs-comment,
+  .hljs-quote {
+    color: #7d8590;
+    font-style: italic;
+  }
+  .hljs-keyword,
+  .hljs-selector-tag,
+  .hljs-built_in,
+  .hljs-name,
+  .hljs-tag {
+    color: #ff7b72;
+  }
+  .hljs-string,
+  .hljs-title,
+  .hljs-section,
+  .hljs-attribute,
+  .hljs-literal,
+  .hljs-template-tag,
+  .hljs-template-variable,
+  .hljs-type,
+  .hljs-addition {
+    color: #7ee787;
+  }
+  .hljs-number,
+  .hljs-symbol,
+  .hljs-bullet,
+  .hljs-link,
+  .hljs-meta,
+  .hljs-selector-id,
+  .hljs-attr,
+  .hljs-variable {
+    color: #79c0ff;
+  }
+  .hljs-function,
+  .hljs-title.function_ {
+    color: #d2a8ff;
+  }
+  .hljs-emphasis {
+    font-style: italic;
+  }
+  .hljs-strong {
+    font-weight: 700;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
