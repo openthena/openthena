@@ -10,8 +10,8 @@ import {
 
 export const SITE = {
   name: "OpenThena",
-  domain: "openthena.com",
-  url: "https://openthena.com",
+  domain: "www.openthena.com",
+  url: "https://www.openthena.com",
   tagline: "The open-source, privacy-first AI assistant.",
   description:
     "OpenThena is an open-source, privacy-first AI assistant. Powered by a LiteLLM-style gateway with the Xiaomi MiMo brain, it streams answers without storing your conversations on any server.",

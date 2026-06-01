@@ -14,7 +14,7 @@ server.** No database. No accounts. No tracking.
 [![Built with Next.js](https://img.shields.io/badge/Next.js-15-04101f.svg)](https://nextjs.org)
 [![Powered by Xiaomi MiMo](https://img.shields.io/badge/Brain-Xiaomi%20MiMo-3b82f6.svg)](https://platform.xiaomimimo.com)
 
-[**Live site → openthena.com**](https://openthena.com) · [Docs](https://openthena.com/docs) · [X](https://x.com/openthena)
+[**Live site → www.openthena.com**](https://www.openthena.com) · [Docs](https://www.openthena.com/docs) · [X](https://x.com/openthena)
 
 </div>
 
@@ -78,9 +78,9 @@ Open <http://localhost:3000> and start chatting.
 1. Push your fork to GitHub.
 2. Import it at [vercel.com/new](https://vercel.com/new).
 3. Add the environment variables above.
-4. Deploy — then attach `openthena.com` in the Domains tab.
+4. Deploy — then attach `www.openthena.com` in the Domains tab.
 
-Full guide: [Deploy to Vercel](https://openthena.com/docs/deploy-vercel).
+Full guide: [Deploy to Vercel](https://www.openthena.com/docs/deploy-vercel).
 
 ## 🔐 Privacy model
 
@@ -89,7 +89,7 @@ Full guide: [Deploy to Vercel](https://openthena.com/docs/deploy-vercel).
 - **No tracking** — no analytics, fingerprinting, or ad cookies.
 - **Local-only history** — stored in `localStorage` under `openthena.conversations.v1`.
 
-Details: [Privacy model](https://openthena.com/docs/privacy).
+Details: [Privacy model](https://www.openthena.com/docs/privacy).
 
 ## 🧱 Tech stack
 

@@ -316,10 +316,10 @@ MIMO_MODEL=mimo-v2.5-pro`}</CodeBlock>
         </Callout>
         <h2>Custom domain</h2>
         <p>
-          Add <code>openthena.com</code> in your Vercel project&apos;s Domains
-          tab and follow the DNS instructions Vercel provides (an A record to{" "}
-          <code>76.76.21.21</code> or a CNAME to{" "}
-          <code>cname.vercel-dns.com</code>).
+          Add <code>www.openthena.com</code> in your Vercel project&apos;s
+          Domains tab and follow the DNS instructions Vercel provides (a CNAME
+          record pointing <code>www</code> to <code>cname.vercel-dns.com</code>,
+          and optionally redirect the apex <code>openthena.com</code> to it).
         </p>
       </>
     ),
