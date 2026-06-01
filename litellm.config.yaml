@@ -1,0 +1,36 @@
+# Optional LiteLLM proxy config for OpenThena self-hosters.
+#
+# Run a real LiteLLM gateway in front of OpenThena to centralize keys,
+# budgets, rate limits, and many providers:
+#
+#   pip install "litellm[proxy]"
+#   export MIMO_API_KEY=your-xiaomi-mimo-api-key
+#   litellm --config litellm.config.yaml      # serves on http://localhost:4000
+#
+# Then point OpenThena at it:
+#   LITELLM_BASE_URL=http://localhost:4000/v1
+#   LITELLM_API_KEY=sk-your-litellm-master-key
+
+model_list:
+  - model_name: mimo-v2.5-pro
+    litellm_params:
+      model: openai/mimo-v2.5-pro
+      api_base: https://api.xiaomimimo.com/v1
+      api_key: os.environ/MIMO_API_KEY
+
+  - model_name: mimo-v2-pro
+    litellm_params:
+      model: openai/mimo-v2-pro
+      api_base: https://api.xiaomimimo.com/v1
+      api_key: os.environ/MIMO_API_KEY
+
+  - model_name: mimo-v2-flash
+    litellm_params:
+      model: openai/mimo-v2-flash
+      api_base: https://api.xiaomimimo.com/v1
+      api_key: os.environ/MIMO_API_KEY
+
+litellm_settings:
+  drop_params: true
+  # Privacy-first: do not persist request/response payloads.
+  turn_off_message_logging: true
