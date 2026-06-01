@@ -85,7 +85,7 @@ export function Hero() {
               <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
               <span className="h-2.5 w-2.5 rounded-full bg-green-400/70" />
               <span className="ml-3 text-xs text-ink/40">
-                openthena.com/chat
+                www.openthena.com/chat
               </span>
             </div>
             <div className="space-y-3 text-sm">
